@@ -14,19 +14,48 @@ namespace publicaciones
 
         private async void btn_empezar_Click(object sender, EventArgs e)
         {
-            string pageId = "316063401590480"; // ID de tu página de Facebook
-            string accessToken = ""; // Reemplaza con tu token de acceso
+            //publicar_face(0, "pru c2", "316063401590480", "EAALC3ciHKp4BO2LTb9dFBpBdlpBTPXufA24vS9zZCCgOuirxXiPGXFdMzOzZCPNkFlabXhpKnMOmqFEc4MtVnxa6MZAAWmaL2fZCUZCy0ZCZBMuPEarMoxaNlMijIgOZAVFJth7rM7ycu5ZCFvde3VT61stbIRqU0MvuMZAUOgSaIF7RJTTCXW6Iau5jzZCuYMEIJpZByqaUZAJ9W");
+            //publicar_face(1, "https://i.ibb.co/MM8BXcT/25.jpg", "316063401590480", "EAALC3ciHKp4BO2LTb9dFBpBdlpBTPXufA24vS9zZCCgOuirxXiPGXFdMzOzZCPNkFlabXhpKnMOmqFEc4MtVnxa6MZAAWmaL2fZCUZCy0ZCZBMuPEarMoxaNlMijIgOZAVFJth7rM7ycu5ZCFvde3VT61stbIRqU0MvuMZAUOgSaIF7RJTTCXW6Iau5jzZCuYMEIJpZByqaUZAJ9W");
+            publicar_face(2, "https://8y-qu1r30n.000webhostapp.com/1.mp4", "316063401590480", "EAALC3ciHKp4BO2LTb9dFBpBdlpBTPXufA24vS9zZCCgOuirxXiPGXFdMzOzZCPNkFlabXhpKnMOmqFEc4MtVnxa6MZAAWmaL2fZCUZCy0ZCZBMuPEarMoxaNlMijIgOZAVFJth7rM7ycu5ZCFvde3VT61stbIRqU0MvuMZAUOgSaIF7RJTTCXW6Iau5jzZCuYMEIJpZByqaUZAJ9W");
+        }
 
-            string message = "hola desde api graph 6"; // Mensaje que quieres publicar
+        public async void publicar_face(int tipo, string url_o_mensage, string pageId, string accessToken)
+        {
+            
+
+            
             bool published = true; // Indicador de publicación
 
             using (var httpClient = new HttpClient())
             {
+                string requestUri;
+                StringContent content;
                 try
                 {
-                    var requestUri = $"https://graph.facebook.com/{pageId}/feed";
-                    var content = new StringContent($"message={message}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
-
+                    switch (tipo)
+                    {
+                        case 0:
+                            //texto
+                            requestUri = $"https://graph.facebook.com/{pageId}/feed";
+                            content = new StringContent($"message={url_o_mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            break;
+                        case 1:
+                            //imagen
+                            requestUri = $"https://graph.facebook.com/{pageId}/photos";
+                            content = new StringContent($"url={url_o_mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            break; 
+                        case 2:
+                            //video
+                            requestUri = $"https://graph.facebook.com/{pageId}/videos";
+                            content = new StringContent($"file_url={url_o_mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            break;
+                        default:
+                            //texto otra vez
+                            requestUri = $"https://graph.facebook.com/{pageId}/feed";
+                            content = new StringContent($"message={url_o_mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            break;
+                    }
+                    
                     httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
 
                     var response = await httpClient.PostAsync(requestUri, content);
@@ -54,5 +83,6 @@ namespace publicaciones
                 }
             }
         }
+
     }
 }
