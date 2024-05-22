@@ -14,12 +14,62 @@ namespace publicaciones
 
         private async void btn_empezar_Click(object sender, EventArgs e)
         {
-            //publicar_face(0, "pru c2", "316063401590480", "EAALC3ciHKp4BO2LTb9dFBpBdlpBTPXufA24vS9zZCCgOuirxXiPGXFdMzOzZCPNkFlabXhpKnMOmqFEc4MtVnxa6MZAAWmaL2fZCUZCy0ZCZBMuPEarMoxaNlMijIgOZAVFJth7rM7ycu5ZCFvde3VT61stbIRqU0MvuMZAUOgSaIF7RJTTCXW6Iau5jzZCuYMEIJpZByqaUZAJ9W");
-            //publicar_face(1, "https://i.ibb.co/MM8BXcT/25.jpg", "316063401590480", "EAALC3ciHKp4BO2LTb9dFBpBdlpBTPXufA24vS9zZCCgOuirxXiPGXFdMzOzZCPNkFlabXhpKnMOmqFEc4MtVnxa6MZAAWmaL2fZCUZCy0ZCZBMuPEarMoxaNlMijIgOZAVFJth7rM7ycu5ZCFvde3VT61stbIRqU0MvuMZAUOgSaIF7RJTTCXW6Iau5jzZCuYMEIJpZByqaUZAJ9W");
-            publicar_face(2, "https://8y-qu1r30n.000webhostapp.com/1.mp4", "316063401590480", "EAALC3ciHKp4BO2LTb9dFBpBdlpBTPXufA24vS9zZCCgOuirxXiPGXFdMzOzZCPNkFlabXhpKnMOmqFEc4MtVnxa6MZAAWmaL2fZCUZCy0ZCZBMuPEarMoxaNlMijIgOZAVFJth7rM7ycu5ZCFvde3VT61stbIRqU0MvuMZAUOgSaIF7RJTTCXW6Iau5jzZCuYMEIJpZByqaUZAJ9W");
+
+            if (txt_id_pagina.Text != "" && txt_token.Text != "")
+            {
+
+
+                if (cmb_a_publicar.Text == "texto")
+                {
+                    if (txt_mensaje.Text != "")
+                    {
+                        publicar_face(0, "", txt_mensaje.Text, txt_id_pagina.Text, txt_token.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("pon algo en el texto a publicar");
+                    }
+                }
+                else if (cmb_a_publicar.Text == "imajen")
+                {
+                    if (txt_mensaje.Text != "" && txt_url_de_imagen_o_video.Text != "")
+                    {
+                        publicar_face(1, "https://i.ibb.co/MM8BXcT/25.jpg", txt_mensaje.Text, txt_id_pagina.Text, txt_token.Text);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("pon algo en el texto y url a publicar");
+                    }
+                }
+                else if (cmb_a_publicar.Text == "video")
+                {
+                    if (txt_mensaje.Text != "" && txt_url_de_imagen_o_video.Text != "")
+                    {
+                        publicar_face(2, "https://video.000webhostapp.com/1.mp4", txt_mensaje.Text, txt_id_pagina.Text, txt_token.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("pon algo en el texto y url a publicar");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("elige una opcion a enviar");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("falta id_de_la_pagina o token");
+            }
+            
+            
+            
+            
         }
 
-        public async void publicar_face(int tipo, string url_o_mensage, string pageId, string accessToken)
+        public async void publicar_face(int tipo, string url_sino_es_mensage, string mensage, string pageId, string accessToken)
         {
             
 
@@ -37,22 +87,22 @@ namespace publicaciones
                         case 0:
                             //texto
                             requestUri = $"https://graph.facebook.com/{pageId}/feed";
-                            content = new StringContent($"message={url_o_mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            content = new StringContent($"message={mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break;
                         case 1:
                             //imagen
                             requestUri = $"https://graph.facebook.com/{pageId}/photos";
-                            content = new StringContent($"url={url_o_mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            content = new StringContent($"url={url_sino_es_mensage}&message={mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break; 
                         case 2:
                             //video
                             requestUri = $"https://graph.facebook.com/{pageId}/videos";
-                            content = new StringContent($"file_url={url_o_mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            content = new StringContent($"file_url={url_sino_es_mensage}&message={mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break;
                         default:
                             //texto otra vez
                             requestUri = $"https://graph.facebook.com/{pageId}/feed";
-                            content = new StringContent($"message={url_o_mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            content = new StringContent($"message={mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break;
                     }
                     
@@ -84,5 +134,23 @@ namespace publicaciones
             }
         }
 
+        private void cmb_a_publicar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_a_publicar.Text=="imajen")
+            {
+                label2.Visible = true;
+                txt_url_de_imagen_o_video.Visible = true;
+            }
+            else if (cmb_a_publicar.Text== "video")
+            {
+                label2.Visible = true;
+                txt_url_de_imagen_o_video.Visible = true;
+            }
+            else
+            {
+                label2.Visible = false;
+                txt_url_de_imagen_o_video.Visible = false;
+            }
+        }
     }
 }
