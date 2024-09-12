@@ -34,7 +34,7 @@ namespace publicaciones
                 {
                     if (txt_mensaje.Text != "" && txt_url_de_imagen_o_video.Text != "")
                     {
-                        publicar_face(1, "https://i.ibb.co/MM8BXcT/25.jpg", txt_mensaje.Text, txt_id_pagina.Text, txt_token.Text);
+                        publicar_face(1, txt_url_de_imagen_o_video.Text, txt_mensaje.Text, txt_id_pagina.Text, txt_token.Text);
 
                     }
                     else
@@ -46,7 +46,7 @@ namespace publicaciones
                 {
                     if (txt_mensaje.Text != "" && txt_url_de_imagen_o_video.Text != "")
                     {
-                        publicar_face(2, "https://video.000webhostapp.com/1.mp4", txt_mensaje.Text, txt_id_pagina.Text, txt_token.Text);
+                        publicar_face(2, txt_url_de_imagen_o_video.Text, txt_mensaje.Text, txt_id_pagina.Text, txt_token.Text);
                     }
                     else
                     {
@@ -82,27 +82,32 @@ namespace publicaciones
                 StringContent content;
                 try
                 {
+                    string mensage_publish = null;
                     switch (tipo)
                     {
                         case 0:
                             //texto
                             requestUri = $"https://graph.facebook.com/{pageId}/feed";
-                            content = new StringContent($"message={mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            mensage_publish = $"message={mensage}&published={published}";
+                            content = new StringContent(mensage_publish, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break;
                         case 1:
                             //imagen
                             requestUri = $"https://graph.facebook.com/{pageId}/photos";
-                            content = new StringContent($"url={url_sino_es_mensage}&message={mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            mensage_publish = $"url={url_sino_es_mensage}&message={mensage}&published={published}";
+                            content = new StringContent(mensage_publish, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break; 
                         case 2:
                             //video
                             requestUri = $"https://graph.facebook.com/{pageId}/videos";
-                            content = new StringContent($"file_url={url_sino_es_mensage}&message={mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            mensage_publish = $"file_url={url_sino_es_mensage}&message={mensage}&published={published}";
+                            content = new StringContent(mensage_publish, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break;
                         default:
                             //texto otra vez
                             requestUri = $"https://graph.facebook.com/{pageId}/feed";
-                            content = new StringContent($"message={mensage}&published={published}", System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
+                            mensage_publish = $"message={mensage}&published={published}";
+                            content = new StringContent(mensage_publish, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break;
                     }
                     

@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\pc1\\Documents\\GitHub\\publi_face\\",
+  "WorkspaceRootPath": "C:\\Users\\QU1R30N\\Documents\\GitHub\\publi_face\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{931AF5BD-E426-40AB-992F-D8435CACC32F}|publicaciones\\publicaciones.csproj|c:\\users\\pc1\\documents\\github\\publi_face\\publicaciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{931AF5BD-E426-40AB-992F-D8435CACC32F}|publicaciones\\publicaciones.csproj|c:\\users\\qu1r30n\\documents\\github\\publi_face\\publicaciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{931AF5BD-E426-40AB-992F-D8435CACC32F}|publicaciones\\publicaciones.csproj|solutionrelative:publicaciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{931AF5BD-E426-40AB-992F-D8435CACC32F}|publicaciones\\publicaciones.csproj|c:\\users\\pc1\\documents\\github\\publi_face\\publicaciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{931AF5BD-E426-40AB-992F-D8435CACC32F}|publicaciones\\publicaciones.csproj|C:\\Users\\QU1R30N\\Documents\\GitHub\\publi_face\\publicaciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{931AF5BD-E426-40AB-992F-D8435CACC32F}|publicaciones\\publicaciones.csproj|solutionrelative:publicaciones\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\pc1\\Documents\\GitHub\\publi_face\\publicaciones\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\QU1R30N\\Documents\\GitHub\\publi_face\\publicaciones\\Form1.cs",
               "RelativeDocumentMoniker": "publicaciones\\Form1.cs",
-              "ToolTip": "C:\\Users\\pc1\\Documents\\GitHub\\publi_face\\publicaciones\\Form1.cs",
+              "ToolTip": "C:\\Users\\QU1R30N\\Documents\\GitHub\\publi_face\\publicaciones\\Form1.cs",
               "RelativeToolTip": "publicaciones\\Form1.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAAADAAAAA3AAAA",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAAAG0AAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-22T23:20:21.715Z",
               "EditorCaption": ""
@@ -37,9 +37,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\pc1\\Documents\\GitHub\\publi_face\\publicaciones\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\QU1R30N\\Documents\\GitHub\\publi_face\\publicaciones\\Form1.cs",
               "RelativeDocumentMoniker": "publicaciones\\Form1.cs",
-              "ToolTip": "C:\\Users\\pc1\\Documents\\GitHub\\publi_face\\publicaciones\\Form1.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\QU1R30N\\Documents\\GitHub\\publi_face\\publicaciones\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "publicaciones\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-22T23:20:05.641Z",
